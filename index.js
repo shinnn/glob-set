@@ -7,13 +7,11 @@
 var inspect = require('util').inspect;
 
 var assertValidGlobOpts = require('assert-valid-glob-opts');
-var ES6Set = require('es6-set');
 var Glob = require('glob').Glob;
-var PinkiePromise = require('pinkie-promise');
 
 module.exports = function globSet(pattern, options) {
   if (typeof pattern !== 'string') {
-    return PinkiePromise.reject(new TypeError(
+    return Promise.reject(new TypeError(
       'Expected a glob pattern (string), but got a non-string value ' +
       inspect(pattern) +
       '.'
@@ -23,13 +21,13 @@ module.exports = function globSet(pattern, options) {
   try {
     assertValidGlobOpts(options);
   } catch (err) {
-    return PinkiePromise.reject(err);
+    return Promise.reject(err);
   }
 
   var resolve;
   var reject;
 
-  var promise = new PinkiePromise(function(resolveArg, rejectArg) {
+  var promise = new Promise(function(resolveArg, rejectArg) {
     resolve = resolveArg;
     reject = rejectArg;
   });
@@ -43,7 +41,7 @@ module.exports = function globSet(pattern, options) {
       return;
     }
 
-    resolve(new ES6Set(found));
+    resolve(new Set(found));
   });
 
   glob.then = promise.then.bind(promise);
