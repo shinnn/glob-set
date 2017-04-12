@@ -4,38 +4,37 @@
 */
 'use strict';
 
-var inspect = require('util').inspect;
+const inspect = require('util').inspect;
 
-var assertValidGlobOpts = require('assert-valid-glob-opts');
-var Glob = require('glob').Glob;
+const Glob = require('glob').Glob;
+const GlobOptionError = require('glob-option-error');
+const validateGlobOpts = require('validate-glob-opts');
 
 module.exports = function globSet(pattern, options) {
   if (typeof pattern !== 'string') {
-    return Promise.reject(new TypeError(
-      'Expected a glob pattern (string), but got a non-string value ' +
-      inspect(pattern) +
-      '.'
-    ));
+    return Promise.reject(new TypeError(`Expected a glob pattern (string), but got a non-string value ${
+      inspect(pattern)
+    }.`));
   }
 
-  try {
-    assertValidGlobOpts(options);
-  } catch (err) {
-    return Promise.reject(err);
+  const validationResults = validateGlobOpts(options);
+
+  if (validationResults.length !== 0) {
+    return Promise.reject(new GlobOptionError(validationResults));
   }
 
-  var resolve;
-  var reject;
+  let resolve;
+  let reject;
 
-  var promise = new Promise(function(resolveArg, rejectArg) {
+  const promise = new Promise((resolveArg, rejectArg) => {
     resolve = resolveArg;
     reject = rejectArg;
   });
 
-  var glob = new Glob(pattern, Object.assign({
+  const glob = new Glob(pattern, Object.assign({
     silent: true,
     strict: true
-  }, options), function(err, found) {
+  }, options), (err, found) => {
     if (err) {
       reject(err);
       return;

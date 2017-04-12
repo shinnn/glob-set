@@ -30,17 +30,18 @@
     "async"
   ],
   "dependencies": {
-    "assert-valid-glob-opts": "^0.1.0",
-    "glob": "^7.1.1"
+    "glob": "^7.1.1",
+    "glob-option-error": "^0.1.0",
+    "validate-glob-opts": "^0.4.0"
   },
   "devDependencies": {
-    "@shinnn/eslint-config-node-legacy": "^3.0.0",
-    "eslint": "^3.14.1",
+    "@shinnn/eslint-config-node": "^3.0.0",
+    "eslint": "^3.16.1",
     "istanbul": "^0.4.5",
     "tape": "^4.6.3",
     "unglobbable": "^1.0.0"
   },
   "eslintConfig": {
-    "extends": "@shinnn/node-legacy"
+    "extends": "@shinnn/node"
   }
 }
