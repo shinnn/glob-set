@@ -30,9 +30,9 @@
     "async"
   ],
   "dependencies": {
-    "glob": "^7.1.1",
-    "glob-option-error": "^0.1.0",
-    "validate-glob-opts": "^0.4.0"
+    "glob": "^7.1.2",
+    "glob-option-error": "^1.0.0",
+    "validate-glob-opts": "^1.0.0"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^3.0.0",

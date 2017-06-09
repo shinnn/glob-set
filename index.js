@@ -4,9 +4,9 @@
 */
 'use strict';
 
-const inspect = require('util').inspect;
+const {inspect} = require('util');
 
-const Glob = require('glob').Glob;
+const {Glob} = require('glob');
 const GlobOptionError = require('glob-option-error');
 const validateGlobOpts = require('validate-glob-opts');
 
