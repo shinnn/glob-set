@@ -5,7 +5,7 @@ const test = require('tape');
 const unglobbable = require('unglobbable');
 
 test('globSet()', t => {
-  t.plan(6);
+  t.plan(8);
 
   globSet('*.js').then(found => {
     t.strictEqual(found.size, 2, 'should be resolved with a Set instance.');
@@ -35,6 +35,22 @@ test('globSet()', t => {
       message,
       'node-glob doesn\'t have `realPathCache` option. Probably you meant `realpathCache`.',
       'should fail when it takes invalid glob option.'
+    );
+  });
+
+  globSet().then(fail, err => {
+    t.strictEqual(
+      err.toString(),
+      'RangeError: Expected 1 or 2 arguments (<string>[, <Object>]), but got no arguments instead.',
+      'should fail when it takes no arguments.'
+    );
+  });
+
+  globSet('1', '2', '3').then(fail, err => {
+    t.strictEqual(
+      err.toString(),
+      'RangeError: Expected 1 or 2 arguments (<string>[, <Object>]), but got 3 arguments instead.',
+      'should fail when it takes too many arguments.'
     );
   });
 });
