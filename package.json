@@ -1,6 +1,6 @@
 {
   "name": "glob-set",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Like ‘glob’ module, but produces matched paths as a Set instead of an array",
   "repository": "shinnn/glob-set",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^3.0.0",
-    "eslint": "^3.16.1",
+    "eslint": "^4.0.0",
     "istanbul": "^0.4.5",
     "tape": "^4.6.3",
     "unglobbable": "^1.0.0"
