@@ -4,10 +4,9 @@
 */
 'use strict';
 
-const {inspect} = require('util');
-
 const {Glob} = require('glob');
 const GlobOptionError = require('glob-option-error');
+const inspectWithKind = require('inspect-with-kind');
 const validateGlobOpts = require('validate-glob-opts');
 
 module.exports = function globSet(...args) {
@@ -23,7 +22,7 @@ module.exports = function globSet(...args) {
 
   if (typeof pattern !== 'string') {
     return Promise.reject(new TypeError(`Expected a glob pattern (string), but got a non-string value ${
-      inspect(pattern)
+      inspectWithKind(pattern)
     }.`));
   }
 
