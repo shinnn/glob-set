@@ -1,7 +1,7 @@
 {
   "name": "glob-set",
-  "version": "0.5.0",
-  "description": "Like ‘glob’ module, but produces matched paths as a Set instead of an array",
+  "version": "1.0.0",
+  "description": "Like ‘glob’ module, but provides matched paths as a Set instead of an Array",
   "repository": "shinnn/glob-set",
   "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
   "scripts": {

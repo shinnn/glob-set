@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/shinnn/glob-set.svg?branch=master)](https://travis-ci.org/shinnn/glob-set)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/glob-set.svg)](https://coveralls.io/github/shinnn/glob-set?branch=master)
 
-Like [node-glob](https://github.com/isaacs/node-glob), but provides results as a [`Set`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set) instead of an array
+Like [node-glob](https://github.com/isaacs/node-glob), but provides results as a [`Set`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set) instead of an `Array`
 
 ```javascript
 const globSet = require('glob-set');
