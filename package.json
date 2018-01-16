@@ -1,48 +1,47 @@
 {
-  "name": "glob-set",
-  "version": "1.0.0",
-  "description": "Like ‘glob’ module, but provides matched paths as a Set instead of an Array",
-  "repository": "shinnn/glob-set",
-  "author": "Shinnosuke Watanabe (https://github.com/shinnn)",
-  "scripts": {
-    "pretest": "eslint --fix --format=codeframe index.js test.js",
-    "test": "node --throw-deprecation --track-heap-objects test.js",
-    "coverage": "istanbul cover --print=both test.js"
-  },
-  "license": "MIT",
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "glob",
-    "match",
-    "matching",
-    "pattern",
-    "wildcard",
-    "filter",
-    "file",
-    "directory",
-    "search",
-    "scan",
-    "find",
-    "set",
-    "promise",
-    "async"
-  ],
-  "dependencies": {
-    "glob": "^7.1.2",
-    "glob-option-error": "^1.0.0",
-    "inspect-with-kind": "^1.0.1",
-    "validate-glob-opts": "^1.0.0"
-  },
-  "devDependencies": {
-    "@shinnn/eslint-config-node": "^4.0.0",
-    "eslint": "^4.0.0",
-    "istanbul": "^0.4.5",
-    "tape": "^4.6.3",
-    "unglobbable": "^1.0.0"
-  },
-  "eslintConfig": {
-    "extends": "@shinnn/node"
-  }
+	"name": "glob-set",
+	"version": "1.0.0",
+	"description": "Like ‘glob’ module, but provides matched paths as a Set instead of an Array",
+	"repository": "shinnn/glob-set",
+	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
+	"scripts": {
+		"pretest": "eslint --fix --format=codeframe index.js test.js",
+		"test": "nyc --reporter=html --reporter=text node test.js"
+	},
+	"license": "MIT",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"glob",
+		"match",
+		"matching",
+		"pattern",
+		"wildcard",
+		"filter",
+		"file",
+		"directory",
+		"search",
+		"scan",
+		"find",
+		"set",
+		"promise",
+		"async"
+	],
+	"dependencies": {
+		"glob": "^7.1.2",
+		"glob-option-error": "^1.0.0",
+		"inspect-with-kind": "^1.0.4",
+		"validate-glob-opts": "^1.0.0"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^5.0.0",
+		"eslint": "^4.15.0",
+		"nyc": "^11.4.1",
+		"tape": "^4.8.0",
+		"unglobbable": "^1.0.0"
+	},
+	"eslintConfig": {
+		"extends": "@shinnn/node"
+	}
 }
