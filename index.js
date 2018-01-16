@@ -1,7 +1,3 @@
-/*!
- * glob-set | MIT (c) Shinnosuke Watanabe
- * https://github.com/shinnn/glob-set
-*/
 'use strict';
 
 const {Glob} = require('glob');

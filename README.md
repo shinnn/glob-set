@@ -1,6 +1,6 @@
 # glob-set
 
-[![NPM version](https://img.shields.io/npm/v/glob-set.svg)](https://www.npmjs.com/package/glob-set)
+[![npm version](https://img.shields.io/npm/v/glob-set.svg)](https://www.npmjs.com/package/glob-set)
 [![Build Status](https://travis-ci.org/shinnn/glob-set.svg?branch=master)](https://travis-ci.org/shinnn/glob-set)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/glob-set.svg)](https://coveralls.io/github/shinnn/glob-set?branch=master)
 
@@ -9,15 +9,14 @@ Like [node-glob](https://github.com/isaacs/node-glob), but provides results as a
 ```javascript
 const globSet = require('glob-set');
 
-globSet('*.js').then(found => {
-  found instanceof Set; //=> true
-  found; //=> Set {'index.js', 'test.js'}
-});
+(async () => {
+  const found = await globSet('*.js'); //=> Set {'index.js', 'test.js'}
+})();
 ```
 
 ## Installation
 
-[Use npm.](https://docs.npmjs.com/cli/install)
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
 
 ```
 npm install glob-set
@@ -31,7 +30,7 @@ const globSet = require('glob-set');
 
 ### globSet(*pattern* [, *options*])
 
-*pattern*: `String` ([glob pattern](https://github.com/isaacs/node-glob#glob-primer))  
+*pattern*: `string` ([glob pattern](https://github.com/isaacs/node-glob#glob-primer))  
 *options*: `Object` ([`glob` options](https://github.com/isaacs/node-glob#options))  
 Return: [`Glob`](https://github.com/isaacs/node-glob#class-globglob) instance with the additional [`Promise` prototype methods](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise#Methods_2)
 
@@ -55,6 +54,4 @@ globSet('*', {cwd: 'node_modules'}).then(found => {
 
 ## License
 
-Copyright (c) 2017 [Shinnosuke Watanabe](https://github.com/shinnn)
-
-Licensed under [the MIT License](./LICENSE).
+[ISC License](./LICENSE) © 2017 Shinnosuke Watanabe
