@@ -5,8 +5,8 @@
 	"repository": "shinnn/glob-set",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
 	"scripts": {
-		"pretest": "eslint --fix --format=codeframe index.js test.js",
-		"test": "nyc --reporter=html --reporter=text node test.js"
+		"pretest": "eslint .",
+		"test": "nyc node test.js"
 	},
 	"license": "MIT",
 	"files": [
@@ -29,19 +29,33 @@
 		"async"
 	],
 	"dependencies": {
-		"glob": "^7.1.2",
+		"glob": "^7.1.3",
 		"glob-option-error": "^1.0.0",
-		"inspect-with-kind": "^1.0.4",
-		"validate-glob-opts": "^1.0.0"
+		"inspect-with-kind": "^1.0.5",
+		"validate-glob-opts": "^1.0.2"
 	},
 	"devDependencies": {
-		"@shinnn/eslint-config-node": "^5.0.0",
-		"eslint": "^4.15.0",
-		"nyc": "^11.4.1",
-		"tape": "^4.8.0",
-		"unglobbable": "^1.0.0"
+		"@shinnn/eslint-config-node": "^6.0.0",
+		"eslint": "^5.4.0",
+		"nyc": "^13.0.1",
+		"nyc-config-common": "^1.0.0",
+		"tape": "^4.9.1",
+		"unglobbable": "^1.0.1"
 	},
 	"eslintConfig": {
-		"extends": "@shinnn/node"
+		"extends": "@shinnn/node",
+		"overrides": [
+			{
+				"files": [
+					"index.js"
+				],
+				"rules": {
+					"promise/prefer-await-to-then": "off"
+				}
+			}
+		]
+	},
+	"nyc": {
+		"extends": "nyc-config-common"
 	}
 }

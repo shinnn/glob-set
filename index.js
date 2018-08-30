@@ -30,24 +30,25 @@ module.exports = function globSet(...args) {
 		}
 	}
 
-	let resolve;
-	let reject;
+	let stackedResolve;
+	let stackedReject;
 
-	const promise = new Promise((resolveArg, rejectArg) => {
-		resolve = resolveArg;
-		reject = rejectArg;
+	const promise = new Promise((resolve, reject) => {
+		stackedResolve = resolve;
+		stackedReject = reject;
 	});
 
-	const glob = new Glob(pattern, Object.assign({
+	const glob = new Glob(pattern, {
 		silent: true,
-		strict: true
-	}, options), (err, found) => {
+		strict: true,
+		...options
+	}, (err, found) => {
 		if (err) {
-			reject(err);
+			stackedReject(err);
 			return;
 		}
 
-		resolve(new Set(found));
+		stackedResolve(new Set(found));
 	});
 
 	glob.then = promise.then.bind(promise);
